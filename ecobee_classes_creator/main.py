@@ -17,8 +17,8 @@ def main():
 
         Logging.initialize_logging(log_file_path)
 
-        logger.info('Starting up Ecobee Classes Creator {0}\n'
-                    'Log file path                => {1}'.format(VERSION, log_file_path))
+        logger.info('Starting up Ecobee Classes Creator %s\n'
+                    'Log file path => %s', VERSION, log_file_path)
 
         Scraper.run()
         ClassCreator.run()
@@ -26,4 +26,4 @@ def main():
         (type_, value_, traceback_) = sys.exc_info()
         logger.error('\n'.join(traceback.format_exception(type_, value_, traceback_)))
     finally:
-        logger.info('Shutting down Ecobee Classes Creator {0}'.format(VERSION))
+        logger.info('Shutting down Ecobee Classes Creator %s', VERSION)

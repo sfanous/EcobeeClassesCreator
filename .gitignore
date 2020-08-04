@@ -1,2 +1,6 @@
+__pycache__/
+.idea/
+.pylintrc
+.vscode/
 *.pyc
-.idea/*
+EcobeeClassesCreator.code-workspace
