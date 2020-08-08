@@ -19,28 +19,33 @@ DEFAULT_LOGGING_CONFIGURATION = {
         'console': {
             'level': 'INFO',
             'formatter': 'MultiLine',
-            'class': 'logging.StreamHandler'
+            'class': 'logging.StreamHandler',
         },
         'rotating_file': {
             'level': 'INFO',
             'formatter': 'MultiLine',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(os.path.join(directory_containing_script, 'logs'),
-                                     'ecobee_classes_creator.log'),
+            'filename': os.path.join(
+                os.path.join(directory_containing_script, 'logs'),
+                'ecobee_classes_creator.log',
+            ),
             'maxBytes': 1024 * 1024 * 10,
-            'backupCount': 10
-        }
+            'backupCount': 10,
+        },
     },
     'loggers': {
         'ecobee_classes_creator': {
             'handlers': ['console', 'rotating_file'],
             'level': 'INFO',
-            'propagate': True
+            'propagate': True,
         }
-    }
+    },
 }
 DEFAULT_LOG_DIRECTORY_PATH = os.path.join(directory_containing_script, 'logs')
-DEFAULT_LOG_FILE_PATH = os.path.join(DEFAULT_LOG_DIRECTORY_PATH, 'ecobee_classes_creator.log')
-LOGGING_CONFIGURATION_FILE_PATH = os.path.join(directory_containing_script,
-                                               'ecobee_classes_creator_logging_configuration.json')
-VERSION = '1.0.0.0'
+DEFAULT_LOG_FILE_PATH = os.path.join(
+    DEFAULT_LOG_DIRECTORY_PATH, 'ecobee_classes_creator.log'
+)
+LOGGING_CONFIGURATION_FILE_PATH = os.path.join(
+    directory_containing_script, 'ecobee_classes_creator_logging_configuration.json'
+)
+VERSION = '1.0.2'

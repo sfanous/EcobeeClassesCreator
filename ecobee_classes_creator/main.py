@@ -17,8 +17,11 @@ def main():
 
         Logging.initialize_logging(log_file_path)
 
-        logger.info('Starting up Ecobee Classes Creator %s\n'
-                    'Log file path => %s', VERSION, log_file_path)
+        logger.info(
+            'Starting up Ecobee Classes Creator %s\n' 'Log file path => %s',
+            VERSION,
+            log_file_path,
+        )
 
         Scraper.run()
         ClassCreator.run()

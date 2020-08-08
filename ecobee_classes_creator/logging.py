@@ -27,7 +27,9 @@ class Logging(object):
             cls.set_logging_configuration()
         except Exception:
             logging_configuration = copy.copy(DEFAULT_LOGGING_CONFIGURATION)
-            logging_configuration['handlers']['rotating_file']['filename'] = log_file_path
+            logging_configuration['handlers']['rotating_file'][
+                'filename'
+            ] = log_file_path
 
             cls.set_logging_configuration(logging_configuration)
 
@@ -35,13 +37,17 @@ class Logging(object):
     def set_logging_configuration(cls, configuration=None):
         if configuration is None:
             try:
-                with open(LOGGING_CONFIGURATION_FILE_PATH, 'r') as logging_configuration_file:
+                with open(
+                    LOGGING_CONFIGURATION_FILE_PATH, 'r'
+                ) as logging_configuration_file:
                     logging.config.dictConfig(json.load(logging_configuration_file))
             except FileNotFoundError:
                 raise
             except Exception:
                 (type_, value_, traceback_) = sys.exc_info()
-                logger.error('\n'.join(traceback.format_exception(type_, value_, traceback_)))
+                logger.error(
+                    '\n'.join(traceback.format_exception(type_, value_, traceback_))
+                )
 
                 raise
         else:

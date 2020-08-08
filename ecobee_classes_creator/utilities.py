@@ -24,12 +24,14 @@ class Utility(object):
     def parse_command_line_arguments(cls):
         parser = ArgumentParser()
 
-        parser.add_argument('-l',
-                            action='store',
-                            default=DEFAULT_LOG_FILE_PATH,
-                            dest='log_file_path',
-                            help='path to the log file',
-                            metavar='log file path')
+        parser.add_argument(
+            '-l',
+            action='store',
+            default=DEFAULT_LOG_FILE_PATH,
+            dest='log_file_path',
+            help='path to the log file',
+            metavar='log file path',
+        )
 
         arguments = parser.parse_args()
 
